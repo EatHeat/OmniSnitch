@@ -19,7 +19,7 @@
     <string name="app_name">OmniSnitch</string>
     <string name="status_bar_recent_remove_item_title">Stop</string>
     <string name="status_bar_recent_inspect_item_title">App info</string>
-    <string name="recents_settings_title">OmniSwitch</string>
+    <string name="recents_settings_title">OmniSnitch</string>
     <string name="start_on_boot_title">Start on boot</string>
     <string name="start_on_boot_summary">Start and enable on device boot</string>
     <string name="toggle_service_title">Enable</string>
