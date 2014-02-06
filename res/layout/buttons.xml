@@ -16,57 +16,57 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_gravity="center_horizontal" >
-	<tk.eatheat.omnisnitch.ui.GlowImageButton
-		android:id="@+id/killAll"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_gravity="center_vertical"
-		android:background="@android:color/transparent"
-		android:minHeight="60dp"
-		android:minWidth="60dp"
-		android:scaleType="centerInside"
-		android:src="@drawable/kill_all" />
-	<tk.eatheat.omnisnitch.ui.GlowImageButton
-		android:id="@+id/killOther"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_gravity="center_vertical"
-		android:background="@android:color/transparent"
-		android:minHeight="60dp"
-		android:minWidth="60dp"
-		android:scaleType="centerInside"
-		android:src="@drawable/kill_other" />
-	<tk.eatheat.omnisnitch.ui.GlowImageButton
-		android:id="@+id/lastApp"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_gravity="center_vertical"
-		android:background="@android:color/transparent"
-		android:minHeight="60dp"
-		android:minWidth="60dp"
-		android:scaleType="centerInside"
-		android:src="@drawable/lastapp" />
-	<tk.eatheat.omnisnitch.ui.GlowImageButton
-		android:id="@+id/home"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_gravity="center_vertical"
-		android:background="@android:color/transparent"
-		android:minHeight="60dp"
-		android:minWidth="60dp"
-		android:scaleType="centerInside"
-		android:src="@drawable/home" />
-	<tk.eatheat.omnisnitch.ui.GlowImageButton
-		android:id="@+id/settings"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_gravity="center_vertical"
-		android:background="@android:color/transparent"
-		android:minHeight="60dp"
-		android:minWidth="60dp"
-		android:scaleType="centerInside"
-		android:src="@drawable/settings" />
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal" >
+    <tk.eatheat.omnisnitch.ui.GlowImageButton
+        android:id="@+id/killAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@android:color/transparent"
+        android:minHeight="60dp"
+        android:minWidth="60dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/kill_all" />
+    <tk.eatheat.omnisnitch.ui.GlowImageButton
+        android:id="@+id/killOther"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@android:color/transparent"
+        android:minHeight="60dp"
+        android:minWidth="60dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/kill_other" />
+    <tk.eatheat.omnisnitch.ui.GlowImageButton
+        android:id="@+id/lastApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@android:color/transparent"
+        android:minHeight="60dp"
+        android:minWidth="60dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/lastapp" />
+    <tk.eatheat.omnisnitch.ui.GlowImageButton
+        android:id="@+id/home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@android:color/transparent"
+        android:minHeight="60dp"
+        android:minWidth="60dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/home" />
+    <tk.eatheat.omnisnitch.ui.GlowImageButton
+        android:id="@+id/settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@android:color/transparent"
+        android:minHeight="60dp"
+        android:minWidth="60dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/settings" />
 </LinearLayout>

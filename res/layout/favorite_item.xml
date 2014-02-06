@@ -16,19 +16,19 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:orientation="vertical" >
-	<tk.eatheat.omnisnitch.ui.GlowTextView
-		android:id="@+id/favorite_item"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:background="@android:color/transparent"
-		android:drawableTop="@drawable/ic_launcher"
-		android:ellipsize="end"
-		android:focusable="false"
-		android:gravity="center_horizontal"
-		android:lines="2"
-		android:scaleType="centerInside"
-		android:textAppearance="?android:attr/textAppearanceSmall" />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <tk.eatheat.omnisnitch.ui.GlowTextView
+        android:id="@+id/favorite_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:drawableTop="@drawable/ic_launcher"
+        android:ellipsize="end"
+        android:focusable="false"
+        android:gravity="center_horizontal"
+        android:lines="2"
+        android:scaleType="centerInside"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 </LinearLayout>

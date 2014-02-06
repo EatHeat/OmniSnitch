@@ -85,7 +85,6 @@ public class SeekBarPreference extends Preference implements
         progress = Math.round(((float) progress) / interval) * interval;
         currentValue = progress;
         monitorBox.setText(progress + "%");
-        changer.onPreferenceChange(this, Integer.toString(progress));
     }
 
     @Override
@@ -94,5 +93,6 @@ public class SeekBarPreference extends Preference implements
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
+        changer.onPreferenceChange(this, Integer.toString(currentValue));
     }
 }

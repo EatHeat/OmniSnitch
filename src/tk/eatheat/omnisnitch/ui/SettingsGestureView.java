@@ -20,10 +20,13 @@ package tk.eatheat.omnisnitch.ui;
 import tk.eatheat.omnisnitch.R;
 import tk.eatheat.omnisnitch.SettingsActivity;
 import tk.eatheat.omnisnitch.SwitchConfiguration;
+import tk.eatheat.omnisnitch.SwitchService;
 import tk.eatheat.omnisnitch.Utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.graphics.PorterDuff.Mode;
@@ -229,12 +232,12 @@ public class SettingsGestureView {
 
                 switch (action) {
                 case MotionEvent.ACTION_DOWN:
-                    mPrefs.edit().putInt(SettingsActivity.PREF_DRAG_HANDLE_LOCATION, mLocation).commit();
-                    
+                    Editor edit = mPrefs.edit();
+                    edit.putInt(SettingsActivity.PREF_DRAG_HANDLE_LOCATION, mLocation);
                     int relHeight = (int)(mStartY / (getCurrentDisplayHeight() /100));
-                    mPrefs.edit().putInt(SettingsActivity.PREF_HANDLE_POS_START_RELATIVE, relHeight).commit();
-                    mPrefs.edit().putInt(SettingsActivity.PREF_HANDLE_HEIGHT, mEndY - mStartY).commit();
-
+                    edit.putInt(SettingsActivity.PREF_HANDLE_POS_START_RELATIVE, relHeight);
+                    edit.putInt(SettingsActivity.PREF_HANDLE_HEIGHT, mEndY - mStartY);
+                    edit.commit();
                     hide();
                 }
                 return true;
@@ -366,7 +369,7 @@ public class SettingsGestureView {
         }
 
         mDragButton.setScaleType(ImageView.ScaleType.FIT_XY);
-        mDragButton.setImageDrawable(d);
+        mDragButton.setImageDrawable(Utils.colorize(mContext.getResources(), mColor, d));
         mDragButton.getDrawable().setColorFilter(mColor, Mode.SRC_ATOP);
         
         mDragButtonStart.setScaleType(ImageView.ScaleType.FIT_XY);
@@ -402,6 +405,10 @@ public class SettingsGestureView {
 
         mWindowManager.addView(mView, getGesturePanelLayoutParams());
         mShowing = true;
+
+        Intent intent = new Intent(
+                SwitchService.RecentsReceiver.ACTION_HANDLE_HIDE);
+        mContext.sendBroadcast(intent);
     }
 
     public void hide() {
@@ -411,6 +418,10 @@ public class SettingsGestureView {
 
         mWindowManager.removeView(mView);
         mShowing = false;
+
+        Intent intent = new Intent(
+                SwitchService.RecentsReceiver.ACTION_HANDLE_SHOW);
+        mContext.sendBroadcast(intent);
     }
     
     public void resetPosition() {

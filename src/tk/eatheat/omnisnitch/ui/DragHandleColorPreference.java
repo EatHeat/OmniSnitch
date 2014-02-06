@@ -83,7 +83,6 @@ public class DragHandleColorPreference extends DialogPreference {
     protected void showDialog(Bundle state) {
         final ColorPickerDialog d = new ColorPickerDialog(getContext(),
                 mColorValue);
-        d.setAlphaSliderVisible(true);
 
         d.setButton(AlertDialog.BUTTON_POSITIVE,
                 mResources.getString(R.string.ok),

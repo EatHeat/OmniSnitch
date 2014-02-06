@@ -1,5 +1,6 @@
 /*
  *  Copyright (C) 2013 The OmniROM Project
+ *  Copyright (C) 2014 EatHeat
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,18 +24,12 @@ import java.util.Iterator;
 import java.util.List;
 
 import tk.eatheat.omnisnitch.ui.SwitchLayout;
-
 import android.app.ActivityManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ComponentName;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.pm.ActivityInfo;
-import android.os.UserHandle;
 import android.util.Log;
-import android.os.RemoteException;
 
 public class SwitchManager {
     private static final String TAG = "SwitchManager";

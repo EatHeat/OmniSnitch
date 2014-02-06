@@ -21,7 +21,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import tk.eatheat.omnisnitch.ui.BitmapFilter;
-
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
@@ -107,7 +106,7 @@ public class Utils {
         Canvas tempCanvas = new Canvas(bmResult);
 
         Bitmap bitmapResized = Bitmap.createScaledBitmap(b, resizedWidth,
-                resizedHeight, false);
+                resizedHeight, true);
         tempCanvas.drawBitmap(bitmapResized, border/2, border/2, null);
 
         return new BitmapDrawable(resources, bmResult);
@@ -154,6 +153,9 @@ public class Utils {
     public static Drawable colorize(Resources resources, int color, Drawable image) {
         Bitmap b = ((BitmapDrawable) image).getBitmap();
         BitmapDrawable b1 = new BitmapDrawable(resources, b);
+        // remove any alpha
+        color = color &~ 0xff000000;
+        color = color | 0xff000000;
         b1.setColorFilter(color, Mode.SRC_ATOP);
         return b1;
     }

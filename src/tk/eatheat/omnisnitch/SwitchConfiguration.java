@@ -23,7 +23,6 @@ import android.graphics.Point;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-import tk.eatheat.omnisnitch.R;
 
 public class SwitchConfiguration {
     public float mBackgroundOpacity = 0.8f;
@@ -39,12 +38,14 @@ public class SwitchConfiguration {
     public int mHandleHeight;
     public boolean mShowLabels = true;
     public int mDragHandleColor;
+    public float mDragHandleOpacity;
     public int mGlowColor;
     public int mDefaultColor;
     public int mIconDpi;
     public boolean mAutoHide;
     public int mHorizontalMargin;
     public static final int AUTO_HIDE_DEFAULT = 3000; // 3s
+    public boolean mDragHandleShow = true;
 
     public static SwitchConfiguration mInstance;
     private WindowManager mWindowManager;
@@ -95,7 +96,10 @@ public class SwitchConfiguration {
                 * mDensity + 0.5f);
         mDragHandleColor = prefs
                 .getInt(SettingsActivity.PREF_DRAG_HANDLE_COLOR, mDefaultColor);
-        mAutoHide= prefs.getBoolean(SettingsActivity.PREF_AUDIO_HIDE_HANDLE, false);
+        opacity = prefs.getInt(SettingsActivity.PREF_DRAG_HANDLE_OPACITY, 100);
+        mDragHandleOpacity = (float) opacity / 100.0f;
+        mAutoHide= prefs.getBoolean(SettingsActivity.PREF_AUTO_HIDE_HANDLE, false);
+        mDragHandleShow = prefs.getBoolean(SettingsActivity.PREF_DRAG_HANDLE_ENABLE, true);
     }
     
     // includes rotation                

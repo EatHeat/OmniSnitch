@@ -19,7 +19,6 @@ package tk.eatheat.omnisnitch;
 
 import java.util.ArrayList;
 import java.util.List;
-import tk.eatheat.omnisnitch.R;
 
 import android.app.ActivityManager;
 import android.content.ComponentName;

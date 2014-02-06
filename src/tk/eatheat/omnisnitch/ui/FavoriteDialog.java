@@ -59,396 +59,396 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class FavoriteDialog extends AlertDialog implements
-		DialogInterface.OnClickListener, DialogInterface.OnDismissListener {
-	private static final String TAG = "FavoriteDialog";
+        DialogInterface.OnClickListener, DialogInterface.OnDismissListener {
+    private static final String TAG = "FavoriteDialog";
 
-	private LayoutInflater mInflater;
-	private List<Drawable> mFavoriteIcons;
-	private List<String> mFavoriteNames;
-	private List<String> mFavoriteList;
-	private SettingsActivity mContext;
-	private FavoriteListAdapter mFavoriteAdapter;
-	private DragSortListView mFavoriteConfigList;
-	private AlertDialog mAddFavoriteDialog;
+    private LayoutInflater mInflater;
+    private List<Drawable> mFavoriteIcons;
+    private List<String> mFavoriteNames;
+    private List<String> mFavoriteList;
+    private SettingsActivity mContext;
+    private FavoriteListAdapter mFavoriteAdapter;
+    private DragSortListView mFavoriteConfigList;
+    private AlertDialog mAddFavoriteDialog;
 
-	ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
-			ViewGroup.LayoutParams.MATCH_PARENT,
-			ViewGroup.LayoutParams.WRAP_CONTENT);
+    ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT);
 
-	public class FavoriteListAdapter extends ArrayAdapter<String> {
+    public class FavoriteListAdapter extends ArrayAdapter<String> {
 
-		public FavoriteListAdapter(Context context, int resource,
-				List<String> values) {
-			super(context, R.layout.favorite_app_item, resource, values);
-		}
+        public FavoriteListAdapter(Context context, int resource,
+                List<String> values) {
+            super(context, R.layout.favorite_app_item, resource, values);
+        }
 
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			View rowView = null;
-			rowView = mInflater.inflate(R.layout.favorite_app_item, parent,
-					false);
-			final TextView item = (TextView) rowView
-					.findViewById(R.id.app_item);
-			item.setText(mFavoriteNames.get(position));
-			final ImageView image = (ImageView) rowView
-					.findViewById(R.id.app_icon);
-			image.setImageDrawable(mFavoriteIcons.get(position));
-			return rowView;
-		}
-	}
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View rowView = null;
+            rowView = mInflater.inflate(R.layout.favorite_app_item, parent,
+                    false);
+            final TextView item = (TextView) rowView
+                    .findViewById(R.id.app_item);
+            item.setText(mFavoriteNames.get(position));
+            final ImageView image = (ImageView) rowView
+                    .findViewById(R.id.app_icon);
+            image.setImageDrawable(mFavoriteIcons.get(position));
+            return rowView;
+        }
+    }
 
-	private class FavoriteDragSortController extends DragSortController {
+    private class FavoriteDragSortController extends DragSortController {
 
-		public FavoriteDragSortController() {
-			super(mFavoriteConfigList, R.id.drag_handle,
-					DragSortController.ON_DOWN,
-					DragSortController.FLING_RIGHT_REMOVE);
-			setRemoveEnabled(true);
-			setSortEnabled(true);
-			setBackgroundColor(0x363636);
-		}
+        public FavoriteDragSortController() {
+            super(mFavoriteConfigList, R.id.drag_handle,
+                    DragSortController.ON_DOWN,
+                    DragSortController.FLING_RIGHT_REMOVE);
+            setRemoveEnabled(true);
+            setSortEnabled(true);
+            setBackgroundColor(0x363636);
+        }
 
-		@Override
-		public void onDragFloatView(View floatView, Point floatPoint,
-				Point touchPoint) {
-			floatView.setLayoutParams(params);
-			mFavoriteConfigList.setFloatAlpha(0.8f);
-		}
+        @Override
+        public void onDragFloatView(View floatView, Point floatPoint,
+                Point touchPoint) {
+            floatView.setLayoutParams(params);
+            mFavoriteConfigList.setFloatAlpha(0.8f);
+        }
 
-		@Override
-		public View onCreateFloatView(int position) {
-			View v = mFavoriteAdapter.getView(position, null,
-					mFavoriteConfigList);
-			v.setLayoutParams(params);
-			return v;
-		}
+        @Override
+        public View onCreateFloatView(int position) {
+            View v = mFavoriteAdapter.getView(position, null,
+                    mFavoriteConfigList);
+            v.setLayoutParams(params);
+            return v;
+        }
 
-		@Override
-		public void onDestroyFloatView(View floatView) {
-		}
-	}
+        @Override
+        public void onDestroyFloatView(View floatView) {
+        }
+    }
 
-	public FavoriteDialog(SettingsActivity context, List<String> favoriteList) {
-		super(context);
-		mContext = context;
-		mFavoriteList = favoriteList;
-		mInflater = (LayoutInflater) context
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	}
+    public FavoriteDialog(SettingsActivity context, List<String> favoriteList) {
+        super(context);
+        mContext = context;
+        mFavoriteList = favoriteList;
+        mInflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    }
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		final Context context = getContext();
-		final View view = getLayoutInflater().inflate(R.layout.favorite_dialog,
-				null);
-		setView(view);
-		setTitle(R.string.favorite_apps_config_title);
-		setCancelable(true);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        final Context context = getContext();
+        final View view = getLayoutInflater().inflate(R.layout.favorite_dialog,
+                null);
+        setView(view);
+        setTitle(R.string.favorite_apps_config_title);
+        setCancelable(true);
 
-		setButton(DialogInterface.BUTTON_POSITIVE,
-				context.getString(android.R.string.ok), this);
-		setButton(DialogInterface.BUTTON_NEUTRAL,
-				context.getString(R.string.favorite_add), this);
-		setButton(DialogInterface.BUTTON_NEGATIVE,
-				context.getString(android.R.string.cancel), this);
+        setButton(DialogInterface.BUTTON_POSITIVE,
+                context.getString(android.R.string.ok), this);
+        setButton(DialogInterface.BUTTON_NEUTRAL,
+                context.getString(R.string.favorite_add), this);
+        setButton(DialogInterface.BUTTON_NEGATIVE,
+                context.getString(android.R.string.cancel), this);
 
-		super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
 
-		mFavoriteConfigList = (DragSortListView) view
-				.findViewById(R.id.favorite_apps);
-		mFavoriteAdapter = new FavoriteListAdapter(mContext,
-				android.R.layout.simple_list_item_single_choice, mFavoriteList);
-		mFavoriteConfigList.setAdapter(mFavoriteAdapter);
+        mFavoriteConfigList = (DragSortListView) view
+                .findViewById(R.id.favorite_apps);
+        mFavoriteAdapter = new FavoriteListAdapter(mContext,
+                android.R.layout.simple_list_item_single_choice, mFavoriteList);
+        mFavoriteConfigList.setAdapter(mFavoriteAdapter);
 
-		final DragSortController dragSortController = new FavoriteDragSortController();
-		mFavoriteConfigList.setFloatViewManager(dragSortController);
-		mFavoriteConfigList
-				.setDropListener(new DragSortListView.DropListener() {
-					@Override
-					public void drop(int from, int to) {
-						String intent = mFavoriteList.remove(from);
-						mFavoriteList.add(to, intent);
-						updateFavorites(mFavoriteList);
-						mFavoriteAdapter.notifyDataSetChanged();
-					}
-				});
-		mFavoriteConfigList
-				.setRemoveListener(new DragSortListView.RemoveListener() {
-					@Override
-					public void remove(int which) {
-						mFavoriteList.remove(which);
-						updateFavorites(mFavoriteList);
-						mFavoriteAdapter.notifyDataSetChanged();
-					}
-				});
-		mFavoriteConfigList.setOnTouchListener(new View.OnTouchListener() {
-			@Override
-			public boolean onTouch(View view, MotionEvent motionEvent) {
-				return dragSortController.onTouch(view, motionEvent);
-			}
-		});
-		mFavoriteConfigList.setItemsCanFocus(false);
-		updateFavorites(mFavoriteList);
-	}
+        final DragSortController dragSortController = new FavoriteDragSortController();
+        mFavoriteConfigList.setFloatViewManager(dragSortController);
+        mFavoriteConfigList
+                .setDropListener(new DragSortListView.DropListener() {
+                    @Override
+                    public void drop(int from, int to) {
+                        String intent = mFavoriteList.remove(from);
+                        mFavoriteList.add(to, intent);
+                        updateFavorites(mFavoriteList);
+                        mFavoriteAdapter.notifyDataSetChanged();
+                    }
+                });
+        mFavoriteConfigList
+                .setRemoveListener(new DragSortListView.RemoveListener() {
+                    @Override
+                    public void remove(int which) {
+                        mFavoriteList.remove(which);
+                        updateFavorites(mFavoriteList);
+                        mFavoriteAdapter.notifyDataSetChanged();
+                    }
+                });
+        mFavoriteConfigList.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return dragSortController.onTouch(view, motionEvent);
+            }
+        });
+        mFavoriteConfigList.setItemsCanFocus(false);
+        updateFavorites(mFavoriteList);
+    }
 
-	@Override
-	protected void onStart() {
-		super.onStart();
+    @Override
+    protected void onStart() {
+        super.onStart();
 
-		Button neutralButton = getButton(DialogInterface.BUTTON_NEUTRAL);
-		neutralButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				showAddFavoriteDialog();
-			}
-		});
-	}
+        Button neutralButton = getButton(DialogInterface.BUTTON_NEUTRAL);
+        neutralButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAddFavoriteDialog();
+            }
+        });
+    }
 
-	@Override
-	protected void onStop() {
-		super.onStop();
-		if (mAddFavoriteDialog != null) {
-			mAddFavoriteDialog.dismiss();
-		}
-	}
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mAddFavoriteDialog != null) {
+            mAddFavoriteDialog.dismiss();
+        }
+    }
 
-	@Override
-	public void onDismiss(DialogInterface dialog) {
-		if (mAddFavoriteDialog != null) {
-			mAddFavoriteDialog = null;
-		}
-	}
+    @Override
+    public void onDismiss(DialogInterface dialog) {
+        if (mAddFavoriteDialog != null) {
+            mAddFavoriteDialog = null;
+        }
+    }
 
-	@Override
-	public void onClick(DialogInterface dialog, int which) {
-		if (which == DialogInterface.BUTTON_POSITIVE) {
-			mContext.applyChanges(mFavoriteList);
-		} else if (which == DialogInterface.BUTTON_NEGATIVE) {
-			cancel();
-		}
-	}
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+        if (which == DialogInterface.BUTTON_POSITIVE) {
+            mContext.applyChanges(mFavoriteList);
+        } else if (which == DialogInterface.BUTTON_NEGATIVE) {
+            cancel();
+        }
+    }
 
-	private void showAddFavoriteDialog() {
-		if (mAddFavoriteDialog != null && mAddFavoriteDialog.isShowing()) {
-			return;
-		}
+    private void showAddFavoriteDialog() {
+        if (mAddFavoriteDialog != null && mAddFavoriteDialog.isShowing()) {
+            return;
+        }
 
-		mAddFavoriteDialog = new AddFavoriteDialog(getContext());
-		mAddFavoriteDialog.setOnDismissListener(this);
-		mAddFavoriteDialog.show();
-	}
+        mAddFavoriteDialog = new AddFavoriteDialog(getContext());
+        mAddFavoriteDialog.setOnDismissListener(this);
+        mAddFavoriteDialog.show();
+    }
 
-	private void updateFavorites(List<String> favoriteList) {
-		final PackageManager pm = mContext.getPackageManager();
-		mFavoriteIcons = new ArrayList<Drawable>();
-		mFavoriteNames = new ArrayList<String>();
-		Iterator<String> nextFavorite = favoriteList.iterator();
-		while (nextFavorite.hasNext()) {
-			String favorite = nextFavorite.next();
-			Intent intent = null;
-			try {
-				intent = Intent.parseUri(favorite, 0);
-				mFavoriteIcons.add(pm.getActivityIcon(intent));
-			} catch (NameNotFoundException e) {
-				Log.e(TAG, "NameNotFoundException: [" + favorite + "]");
-				continue;
-			} catch (URISyntaxException e) {
-				Log.e(TAG, "URISyntaxException: [" + favorite + "]");
-				continue;
-			}
-			String label = Utils.getActivityLabel(pm, intent);
-			if (label == null) {
-				label = favorite;
-			}
-			mFavoriteNames.add(label);
-		}
-	}
+    private void updateFavorites(List<String> favoriteList) {
+        final PackageManager pm = mContext.getPackageManager();
+        mFavoriteIcons = new ArrayList<Drawable>();
+        mFavoriteNames = new ArrayList<String>();
+        Iterator<String> nextFavorite = favoriteList.iterator();
+        while (nextFavorite.hasNext()) {
+            String favorite = nextFavorite.next();
+            Intent intent = null;
+            try {
+                intent = Intent.parseUri(favorite, 0);
+                mFavoriteIcons.add(pm.getActivityIcon(intent));
+            } catch (NameNotFoundException e) {
+                Log.e(TAG, "NameNotFoundException: [" + favorite + "]");
+                continue;
+            } catch (URISyntaxException e) {
+                Log.e(TAG, "URISyntaxException: [" + favorite + "]");
+                continue;
+            }
+            String label = Utils.getActivityLabel(pm, intent);
+            if (label == null) {
+                label = favorite;
+            }
+            mFavoriteNames.add(label);
+        }
+    }
 
-	public void applyChanges(List<String> favoriteList) {
-		mFavoriteList.clear();
-		mFavoriteList.addAll(favoriteList);
-		updateFavorites(mFavoriteList);
-		mFavoriteAdapter.notifyDataSetChanged();
-	}
+    public void applyChanges(List<String> favoriteList) {
+        mFavoriteList.clear();
+        mFavoriteList.addAll(favoriteList);
+        updateFavorites(mFavoriteList);
+        mFavoriteAdapter.notifyDataSetChanged();
+    }
 
-	private class AddFavoriteDialog extends AlertDialog implements
-			DialogInterface.OnClickListener {
+    private class AddFavoriteDialog extends AlertDialog implements
+            DialogInterface.OnClickListener {
 
-		private PackageAdapter mPackageAdapter;
-		private List<String> mChangedFavoriteList;
-		private List<PackageItem> mInstalledPackages;
-		private ListView mListView;
+        private PackageAdapter mPackageAdapter;
+        private List<String> mChangedFavoriteList;
+        private List<PackageItem> mInstalledPackages;
+        private ListView mListView;
 
-		private class PackageItem implements Comparable<PackageItem> {
-			CharSequence title;
-			String packageName;
-			Drawable icon;
-			String intent;
+        private class PackageItem implements Comparable<PackageItem> {
+            CharSequence title;
+            String packageName;
+            Drawable icon;
+            String intent;
 
-			@Override
-			public int compareTo(PackageItem another) {
-				int result = title.toString().compareToIgnoreCase(
-						another.title.toString());
-				return result != 0 ? result : packageName
-						.compareTo(another.packageName);
-			}
-		}
-		
-	    private Drawable getDefaultActivityIcon() {
-	        return mContext.getResources().getDrawable(R.drawable.ic_default);
-	    }
+            @Override
+            public int compareTo(PackageItem another) {
+                int result = title.toString().compareToIgnoreCase(
+                        another.title.toString());
+                return result != 0 ? result : packageName
+                        .compareTo(another.packageName);
+            }
+        }
+        
+        private Drawable getDefaultActivityIcon() {
+            return mContext.getResources().getDrawable(R.drawable.ic_default);
+        }
 
-		private class PackageAdapter extends BaseAdapter {
+        private class PackageAdapter extends BaseAdapter {
 
-			private void reloadList() {
-				final PackageManager pm = mContext.getPackageManager();
+            private void reloadList() {
+                final PackageManager pm = mContext.getPackageManager();
 
-				mInstalledPackages.clear();
+                mInstalledPackages.clear();
 
-				final Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-				mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-				List<ResolveInfo> installedAppsInfo = pm.queryIntentActivities(
-						mainIntent, 0);
+                final Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
+                mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+                List<ResolveInfo> installedAppsInfo = pm.queryIntentActivities(
+                        mainIntent, 0);
 
-				for (ResolveInfo info : installedAppsInfo) {
-					ApplicationInfo appInfo = info.activityInfo.applicationInfo;
+                for (ResolveInfo info : installedAppsInfo) {
+                    ApplicationInfo appInfo = info.activityInfo.applicationInfo;
 
-					final PackageItem item = new PackageItem();
-					item.packageName = appInfo.packageName;
+                    final PackageItem item = new PackageItem();
+                    item.packageName = appInfo.packageName;
 
-					ActivityInfo activity = info.activityInfo;
-					ComponentName name = new ComponentName(
-							activity.applicationInfo.packageName, activity.name);
-					Intent intent = new Intent(Intent.ACTION_MAIN);
-					intent.addCategory(Intent.CATEGORY_LAUNCHER);
-					intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-							| Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
-					intent.setComponent(name);
-					item.intent = intent.toUri(0);
-					try {
-						item.icon = pm.getActivityIcon(intent);
-					} catch (NameNotFoundException e) {
-						continue;
-					}
-					item.title = Utils.getActivityLabel(pm, intent);
-					if (item.title == null) {
-						item.title = appInfo.loadLabel(pm);
-					}
-					if (item.icon == null) {
-					    item.icon = getDefaultActivityIcon();
-					}
-					mInstalledPackages.add(item);
-				}
-				Collections.sort(mInstalledPackages);
-			}
+                    ActivityInfo activity = info.activityInfo;
+                    ComponentName name = new ComponentName(
+                            activity.applicationInfo.packageName, activity.name);
+                    Intent intent = new Intent(Intent.ACTION_MAIN);
+                    intent.addCategory(Intent.CATEGORY_LAUNCHER);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                            | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+                    intent.setComponent(name);
+                    item.intent = intent.toUri(0);
+                    try {
+                        item.icon = pm.getActivityIcon(intent);
+                    } catch (NameNotFoundException e) {
+                        continue;
+                    }
+                    item.title = Utils.getActivityLabel(pm, intent);
+                    if (item.title == null) {
+                        item.title = appInfo.loadLabel(pm);
+                    }
+                    if (item.icon == null) {
+                        item.icon = getDefaultActivityIcon();
+                    }
+                    mInstalledPackages.add(item);
+                }
+                Collections.sort(mInstalledPackages);
+            }
 
-			public PackageAdapter() {
-				reloadList();
-			}
+            public PackageAdapter() {
+                reloadList();
+            }
 
-			@Override
-			public int getCount() {
-				return mInstalledPackages.size();
-			}
+            @Override
+            public int getCount() {
+                return mInstalledPackages.size();
+            }
 
-			@Override
-			public PackageItem getItem(int position) {
-				return mInstalledPackages.get(position);
-			}
+            @Override
+            public PackageItem getItem(int position) {
+                return mInstalledPackages.get(position);
+            }
 
-			@Override
-			public long getItemId(int position) {
-				// intent is guaranteed to be unique in mInstalledPackages
-				return mInstalledPackages.get(position).intent.hashCode();
-			}
+            @Override
+            public long getItemId(int position) {
+                // intent is guaranteed to be unique in mInstalledPackages
+                return mInstalledPackages.get(position).intent.hashCode();
+            }
 
-			@Override
-			public View getView(int position, View convertView, ViewGroup parent) {
-				ViewHolder holder;
-				if (convertView != null) {
-					holder = (ViewHolder) convertView.getTag();
-				} else {
-					convertView = getLayoutInflater().inflate(
-							R.layout.installed_app_item, parent, false);
-					holder = new ViewHolder();
-					convertView.setTag(holder);
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                ViewHolder holder;
+                if (convertView != null) {
+                    holder = (ViewHolder) convertView.getTag();
+                } else {
+                    convertView = getLayoutInflater().inflate(
+                            R.layout.installed_app_item, parent, false);
+                    holder = new ViewHolder();
+                    convertView.setTag(holder);
 
-					holder.item = (TextView) convertView
-							.findViewById(R.id.app_item);
-					holder.check = (CheckBox) convertView
-							.findViewById(R.id.app_check);
-					holder.image = (ImageView) convertView
-							.findViewById(R.id.app_icon);
-				}
-				PackageItem applicationInfo = getItem(position);
-				holder.item.setText(applicationInfo.title);
-				holder.image.setImageDrawable(applicationInfo.icon);
-				holder.check.setChecked(mChangedFavoriteList
-						.contains(applicationInfo.intent));
+                    holder.item = (TextView) convertView
+                            .findViewById(R.id.app_item);
+                    holder.check = (CheckBox) convertView
+                            .findViewById(R.id.app_check);
+                    holder.image = (ImageView) convertView
+                            .findViewById(R.id.app_icon);
+                }
+                PackageItem applicationInfo = getItem(position);
+                holder.item.setText(applicationInfo.title);
+                holder.image.setImageDrawable(applicationInfo.icon);
+                holder.check.setChecked(mChangedFavoriteList
+                        .contains(applicationInfo.intent));
 
-				Log.d(TAG, "add " + applicationInfo.title);
-				return convertView;
-			}
-		}
+                Log.d(TAG, "add " + applicationInfo.title);
+                return convertView;
+            }
+        }
 
-		private class ViewHolder {
-			TextView item;
-			CheckBox check;
-			ImageView image;
-		}
+        private class ViewHolder {
+            TextView item;
+            CheckBox check;
+            ImageView image;
+        }
 
-		protected AddFavoriteDialog(Context context) {
-			super(context);
-		}
+        protected AddFavoriteDialog(Context context) {
+            super(context);
+        }
 
-		@Override
-		public void onClick(DialogInterface dialog, int which) {
-			if (which == DialogInterface.BUTTON_POSITIVE) {
-				applyChanges(mChangedFavoriteList);
-			} else if (which == DialogInterface.BUTTON_NEGATIVE) {
-				cancel();
-			}
-		}
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            if (which == DialogInterface.BUTTON_POSITIVE) {
+                applyChanges(mChangedFavoriteList);
+            } else if (which == DialogInterface.BUTTON_NEGATIVE) {
+                cancel();
+            }
+        }
 
-		@Override
-		protected void onCreate(Bundle savedInstanceState) {
-			final Context context = getContext();
-			final View view = getLayoutInflater().inflate(
-					R.layout.installed_apps_dialog, null);
-			setView(view);
-			setTitle(R.string.favorite_apps_add_dialog_title);
-			setCancelable(true);
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            final Context context = getContext();
+            final View view = getLayoutInflater().inflate(
+                    R.layout.installed_apps_dialog, null);
+            setView(view);
+            setTitle(R.string.favorite_apps_add_dialog_title);
+            setCancelable(true);
 
-			setButton(DialogInterface.BUTTON_POSITIVE,
-					context.getString(android.R.string.ok), this);
-			setButton(DialogInterface.BUTTON_NEGATIVE,
-					context.getString(android.R.string.cancel), this);
+            setButton(DialogInterface.BUTTON_POSITIVE,
+                    context.getString(android.R.string.ok), this);
+            setButton(DialogInterface.BUTTON_NEGATIVE,
+                    context.getString(android.R.string.cancel), this);
 
-			super.onCreate(savedInstanceState);
-			mChangedFavoriteList = new ArrayList<String>();
-			mChangedFavoriteList.addAll(mFavoriteList);
+            super.onCreate(savedInstanceState);
+            mChangedFavoriteList = new ArrayList<String>();
+            mChangedFavoriteList.addAll(mFavoriteList);
 
-			mListView = (ListView) view.findViewById(R.id.installed_apps);
-			mInstalledPackages = new LinkedList<PackageItem>();
-			mPackageAdapter = new PackageAdapter();
-			mListView.setAdapter(mPackageAdapter);
-			mListView.setOnItemClickListener(new OnItemClickListener() {
-				@Override
-				public void onItemClick(AdapterView<?> parent, View view,
-						int position, long id) {
-					PackageItem info = (PackageItem) parent
-							.getItemAtPosition(position);
-					ViewHolder viewHolder = (ViewHolder) view.getTag();
-					viewHolder.check.setChecked(!viewHolder.check.isChecked());
-					if (viewHolder.check.isChecked()) {
-						if (!mChangedFavoriteList.contains(info.intent)) {
-							mChangedFavoriteList.add(info.intent);
-						}
-					} else {
-						mChangedFavoriteList.remove(info.intent);
-					}
-				}
-			});
-		}
-	}
+            mListView = (ListView) view.findViewById(R.id.installed_apps);
+            mInstalledPackages = new LinkedList<PackageItem>();
+            mPackageAdapter = new PackageAdapter();
+            mListView.setAdapter(mPackageAdapter);
+            mListView.setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view,
+                        int position, long id) {
+                    PackageItem info = (PackageItem) parent
+                            .getItemAtPosition(position);
+                    ViewHolder viewHolder = (ViewHolder) view.getTag();
+                    viewHolder.check.setChecked(!viewHolder.check.isChecked());
+                    if (viewHolder.check.isChecked()) {
+                        if (!mChangedFavoriteList.contains(info.intent)) {
+                            mChangedFavoriteList.add(info.intent);
+                        }
+                    } else {
+                        mChangedFavoriteList.remove(info.intent);
+                    }
+                }
+            });
+        }
+    }
 }

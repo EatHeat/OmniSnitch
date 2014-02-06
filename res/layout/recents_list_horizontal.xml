@@ -16,39 +16,39 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:orientation="vertical" >
-	<include layout="@layout/buttons" />
-	<include layout="@layout/recents_rambar" />
-	<tk.eatheat.omnisnitch.ui.HorizontalListView
-		android:id="@+id/recent_list_horizontal"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_gravity="center_horizontal" />
-	<TextView
-		android:id="@+id/no_recent_apps"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_gravity="center"
-		android:gravity="center_horizontal|center_vertical"
-		android:text="@string/no_recent_apps_title"
-		android:textColor="@android:color/white"
-		android:textSize="20dp"
-		android:visibility="gone" />
-	<ImageButton
-		android:id="@+id/openFavorites"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_gravity="center_horizontal"
-		android:background="@android:color/transparent"
-		android:minHeight="40dip"
-		android:minWidth="150dip"
-		android:scaleType="centerInside"
-		android:src="@drawable/arrow_down" />
-	<tk.eatheat.omnisnitch.ui.HorizontalListView
-		android:id="@+id/favorite_list_horizontal"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_gravity="center_horizontal" />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <include layout="@layout/buttons" />
+    <include layout="@layout/recents_rambar" />
+    <tk.eatheat.omnisnitch.ui.HorizontalListView
+        android:id="@+id/recent_list_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal" />
+    <TextView
+        android:id="@+id/no_recent_apps"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/no_recent_apps_title"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:visibility="gone" />
+    <ImageButton
+        android:id="@+id/openFavorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/transparent"
+        android:minHeight="40dip"
+        android:minWidth="150dip"
+        android:scaleType="centerInside"
+        android:src="@drawable/arrow_down" />
+    <tk.eatheat.omnisnitch.ui.HorizontalListView
+        android:id="@+id/favorite_list_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>

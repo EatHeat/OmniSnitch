@@ -18,7 +18,6 @@
 package tk.eatheat.omnisnitch;
 
 import tk.eatheat.omnisnitch.ui.SwitchGestureView;
-
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -65,6 +64,8 @@ public class SwitchService extends Service {
         filter.addAction(RecentsReceiver.ACTION_KILL_ACTIVITY);
         filter.addAction(RecentsReceiver.ACTION_OVERLAY_SHOWN);
         filter.addAction(RecentsReceiver.ACTION_OVERLAY_HIDDEN);
+        filter.addAction(RecentsReceiver.ACTION_HANDLE_HIDE);
+        filter.addAction(RecentsReceiver.ACTION_HANDLE_SHOW);
 
         registerReceiver(mReceiver, filter);
 
@@ -79,8 +80,6 @@ public class SwitchService extends Service {
         };
 
         mPrefs.registerOnSharedPreferenceChangeListener(mPrefsListener);
-
-        mGesturePanel.show();
 
         mIsRunning = true;
     }
@@ -112,6 +111,8 @@ public class SwitchService extends Service {
         public static final String ACTION_KILL_ACTIVITY = "tk.eatheat.omnisnitch.ACTION_KILL_ACTIVITY";
         public static final String ACTION_OVERLAY_SHOWN = "tk.eatheat.omnisnitch.ACTION_OVERLAY_SHOWN";
         public static final String ACTION_OVERLAY_HIDDEN = "tk.eatheat.omnisnitch.ACTION_OVERLAY_HIDDEN";
+        public static final String ACTION_HANDLE_HIDE = "tk.eatheat.omnisnitch.ACTION_HANDLE_HIDE";
+        public static final String ACTION_HANDLE_SHOW = "tk.eatheat.omnisnitch.ACTION_HANDLE_SHOW";
 
         @Override
         public void onReceive(final Context context, Intent intent) {
@@ -149,6 +150,12 @@ public class SwitchService extends Service {
                 mGesturePanel.overlayShown();
             } else if (ACTION_OVERLAY_HIDDEN.equals(action)){
                 mGesturePanel.overlayHidden();
+            } else if (ACTION_HANDLE_SHOW.equals(action)){
+                if (mConfiguration.mDragHandleShow){
+                    mGesturePanel.show();
+                }
+            } else if (ACTION_HANDLE_HIDE.equals(action)){
+                mGesturePanel.hide();
             }
         }
     }

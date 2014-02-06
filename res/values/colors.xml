@@ -16,8 +16,8 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources>
-	<color name="holo_blue_light">#ff33b5e5</color>
-	<color name="settings_gesture_view_bg">#A0505050</color>
-	<color name="settings_gesture_button_bg">#ff202020</color>
-	<color name="settings_gesture_button_fg">#ffffffff</color>
+    <color name="holo_blue_light">#ff33b5e5</color>
+    <color name="settings_gesture_view_bg">#A0505050</color>
+    <color name="settings_gesture_button_bg">#ff202020</color>
+    <color name="settings_gesture_button_fg">#ffffffff</color>
 </resources>

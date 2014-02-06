@@ -1,6 +1,7 @@
 /*
  *  Copyright (C) 2013 The OmniROM Project
- *
+ *  Copyright (C) 2014 EatHeat
+ *  
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 2 of the License, or
@@ -34,8 +35,9 @@ import tk.eatheat.omnisnitch.Utils;
 import tk.eatheat.omnisnitch.showcase.ShowcaseView;
 import tk.eatheat.omnisnitch.showcase.ShowcaseView.OnShowcaseEventListener;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
-import android.app.TaskStackBuilder;
+import android.support.v4.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -72,6 +74,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+@SuppressLint("NewApi")
 public class SwitchLayout implements OnShowcaseEventListener {
     private static final String TAG = "SwitchLayout";
     private static final boolean DEBUG = false;
@@ -527,8 +530,12 @@ public class SwitchLayout implements OnShowcaseEventListener {
                 .findViewById(R.id.backgroundText);
 
         mPopupView = new FrameLayout(mContext);
+        try{
+            mPopupView.setBackground(mContext.getResources().getDrawable(R.drawable.overlay_bg));
+           }catch (NoSuchMethodError x){
         mPopupView.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.overlay_bg));
 
+    }
         mPopupView.setOnTouchListener(new View.OnTouchListener() {
         	@Override
         	public boolean onTouch(View v, MotionEvent event) {
@@ -608,8 +615,7 @@ public class SwitchLayout implements OnShowcaseEventListener {
                 	}catch (NoSuchMethodError x){
                     mOpenFavorite.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 	}
-                	
-                    int[] location = new int[2];
+                	int[] location = new int[2];
                     mOpenFavorite.getLocationOnScreen(location);
                     mOpenFavoriteY = location[1];
                 }

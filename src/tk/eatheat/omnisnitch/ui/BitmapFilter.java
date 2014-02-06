@@ -1,6 +1,7 @@
 /*
- * Copyright (C) 2013 Guillaume Lesniak
- *
+ *  Copyright (C) 2013 Guillaume Lesniak
+ *  Copyright (C) 2014 EatHeat
+ *  
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
@@ -19,6 +20,7 @@
 
 package tk.eatheat.omnisnitch.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BlurMaskFilter;
@@ -39,6 +41,7 @@ import java.util.Map;
  * This class renders a bitmap with a certain effect
  * and cache it for future use.
  */
+@SuppressLint("NewApi")
 public class BitmapFilter {
     private static BitmapFilter mSingleton;
 

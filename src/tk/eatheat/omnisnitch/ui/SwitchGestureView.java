@@ -18,6 +18,7 @@
 package tk.eatheat.omnisnitch.ui;
 
 import tk.eatheat.omnisnitch.R;
+import tk.eatheat.omnisnitch.SettingsActivity;
 import tk.eatheat.omnisnitch.SwitchConfiguration;
 import tk.eatheat.omnisnitch.SwitchService;
 import tk.eatheat.omnisnitch.Utils;
@@ -29,7 +30,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
-import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -108,7 +108,7 @@ public class SwitchGestureView implements OnShowcaseEventListener {
                     Log.d(TAG, "button onTouch");
                 }
                 if (!mEnabled){
-                    return true;
+                    return false;
                 }
                 boolean defaultResult = v.onTouchEvent(event);
 
@@ -257,8 +257,8 @@ public class SwitchGestureView implements OnShowcaseEventListener {
         if (mConfiguration.mLocation == 1) {
             mCurrentDragHandleImage = Utils.rotate(mContext.getResources(), mCurrentDragHandleImage, 180);
         }
-        mCurrentDragHandleImage.setColorFilter(mConfiguration.mDragHandleColor, Mode.SRC_ATOP);
-
+        mCurrentDragHandleImage=Utils.colorize(mContext.getResources(), mConfiguration.mDragHandleColor, mCurrentDragHandleImage);
+        mCurrentDragHandleImage.setAlpha((int) (255 * mConfiguration.mDragHandleOpacity));
         mDragButton.setScaleType(ImageView.ScaleType.FIT_XY);
 
         if(shown){
@@ -273,13 +273,23 @@ public class SwitchGestureView implements OnShowcaseEventListener {
             Log.d(TAG, "updatePrefs");
         }
         updateButton();
+        
+        if(key == null || key.equals(SettingsActivity.PREF_DRAG_HANDLE_ENABLE)){
+            if(mConfiguration.mDragHandleShow){
+                show();
+            } else {
+                hide();
+            }
+        }
     }
 
     public synchronized void show() {
         if (mShowing) {
             return;
         }
-
+        if(DEBUG){
+            Log.d(TAG, "show");
+        }
         mWindowManager.addView(mView, getParams());
         if(!mShowcaseDone){
             mView.postDelayed(new Runnable(){
@@ -297,11 +307,14 @@ public class SwitchGestureView implements OnShowcaseEventListener {
             return;
         }
 
+        if(DEBUG){
+            Log.d(TAG, "hide");
+        }
         mWindowManager.removeView(mView);
         mShowing = false;
         mEnabled = false;
     }
-    
+
     public void overlayShown() {
         if(DEBUG){
             Log.d(TAG, "overlayShown");

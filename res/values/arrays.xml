@@ -16,21 +16,21 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-	<string-array name="icon_size_entries" translatable="false">
-		<item>@string/icon_size_small</item>
-		<item>@string/icon_size_normal</item>
-		<item>@string/icon_size_large</item>
-	</string-array>
-	<string-array name="icon_size_values" translatable="false">
-		<item>40</item>
-		<item>60</item>
-		<item>80</item>
-	</string-array>
-	<string-array name="button_entries" translatable="false">
-		<item>@string/kill_all_apps</item>
-		<item>@string/kill_other_apps</item>
-		<item>@string/toogle_last_app</item>
-		<item>@string/home</item>
-		<item>@string/settings</item>
-	</string-array>
+    <string-array name="icon_size_entries" translatable="false">
+        <item>@string/icon_size_small</item>
+        <item>@string/icon_size_normal</item>
+        <item>@string/icon_size_large</item>
+    </string-array>
+    <string-array name="icon_size_values" translatable="false">
+        <item>40</item>
+        <item>60</item>
+        <item>80</item>
+    </string-array>
+    <string-array name="button_entries" translatable="false">
+        <item>@string/kill_all_apps</item>
+        <item>@string/kill_other_apps</item>
+        <item>@string/toogle_last_app</item>
+        <item>@string/home</item>
+        <item>@string/settings</item>
+    </string-array>
 </resources>

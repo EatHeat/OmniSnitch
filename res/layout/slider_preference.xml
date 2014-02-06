@@ -16,46 +16,46 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
-	android:gravity="center_vertical"
-	android:minHeight="?android:attr/listPreferredItemHeight"
-	android:paddingLeft="8dp"
-	android:paddingRight="20dp" >
-	<TextView
-		android:id="@+android:id/title"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:ellipsize="marquee"
-		android:fadingEdge="horizontal"
-		android:singleLine="true"
-		android:textAppearance="?android:attr/textAppearanceMedium" />
-	<TextView
-		android:id="@+android:id/summary"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_below="@android:id/title"
-		android:fadingEdge="horizontal"
-		android:textAppearance="?android:attr/textAppearanceSmall" />
-	<RelativeLayout
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:layout_below="@android:id/summary" >
-		<TextView
-			android:id="@+id/monitor_box"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignParentRight="true"
-			android:layout_centerInParent="true"
-			android:singleLine="true"
-			android:textAppearance="?android:attr/textAppearanceSmall" />
-		<SeekBar
-			android:id="@+id/seek_bar"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:layout_centerInParent="true"
-			android:layout_toLeftOf="@id/monitor_box"
-			android:max="100"
-			android:progress="60" />
-	</RelativeLayout>
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:paddingLeft="8dp"
+    android:paddingRight="20dp" >
+    <TextView
+        android:id="@+android:id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:fadingEdge="horizontal"
+        android:singleLine="true"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <TextView
+        android:id="@+android:id/summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@android:id/title"
+        android:fadingEdge="horizontal"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@android:id/summary" >
+        <TextView
+            android:id="@+id/monitor_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+        <SeekBar
+            android:id="@+id/seek_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@id/monitor_box"
+            android:max="100"
+            android:progress="60" />
+    </RelativeLayout>
 </RelativeLayout>
