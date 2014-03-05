@@ -25,6 +25,8 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -149,7 +151,6 @@ public class SwitchManager {
 	public void killTask(TaskDescription ad) {
 		final ActivityManager am = (ActivityManager) mContext
 				.getSystemService(Context.ACTIVITY_SERVICE);
-
 		// am.removeTask(ad.getPersistentTaskId(),
 		// ActivityManager.REMOVE_TASK_KILL_PROCESS);
 		notKilled();
@@ -187,11 +188,12 @@ public class SwitchManager {
 	}
 
 	private void notKilled() {
-		// TODO Fix this so that what needs to get killed, gets killed
-
+		// TODO Make the apps be killed
+		final int TOAST_DURATION = 1000;
 		// For now just toasts to the user saying that the app was not killed
-		Toast.makeText(mContext, "App(s) not killed, sorry", 1000)
-				.show();
+		Toast.makeText(mContext,
+				"App(s) not killed, refer to known Bugs",
+				TOAST_DURATION).show();
 
 	}
 
