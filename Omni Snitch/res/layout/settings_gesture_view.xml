@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2013 The OmniROM Project
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:baselineAligned="false"
+    android:orientation="horizontal" >
+    <LinearLayout
+        android:id="@+id/drag_handle_view_left"
+        android:layout_width="60dp"
+        android:layout_height="fill_parent"
+        android:layout_gravity="top"
+        android:background="@color/settings_gesture_view_bg"
+        android:orientation="vertical" >
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@color/settings_gesture_view_bg"
+        android:orientation="vertical" >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical" >
+            <Button
+                android:id="@+id/location_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/settings_gesture_button_bg"
+                android:text="@string/location_left"
+                android:textColor="@color/settings_gesture_button_fg" />
+            <Button
+                android:id="@+id/reset_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/location_button"
+                android:layout_margin="10dp"
+                android:background="@color/settings_gesture_button_bg"
+                android:text="@string/reset"
+                android:textColor="@color/settings_gesture_button_fg" />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal" >
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/settings_gesture_button_bg"
+                android:text="@android:string/cancel"
+                android:textColor="@color/settings_gesture_button_fg" />
+            <Button
+                android:id="@+id/ok_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/settings_gesture_button_bg"
+                android:text="@android:string/ok"
+                android:textColor="@color/settings_gesture_button_fg" />
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/drag_handle_view_right"
+        android:layout_width="60dp"
+        android:layout_height="fill_parent"
+        android:layout_gravity="top"
+        android:background="@color/settings_gesture_view_bg"
+        android:orientation="vertical" >
+    </LinearLayout>
+</LinearLayout>
