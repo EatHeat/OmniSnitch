@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2013 The OmniROM Project
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="icon_size_entries" translatable="false">
+        <item>@string/icon_size_small</item>
+        <item>@string/icon_size_normal</item>
+        <item>@string/icon_size_large</item>
+    </string-array>
+    <string-array name="icon_size_values" translatable="false">
+        <item>40</item>
+        <item>60</item>
+        <item>80</item>
+    </string-array>
+    <string-array name="button_entries" translatable="false">
+        <item>@string/kill_all_apps</item>
+        <item>@string/kill_other_apps</item>
+        <item>@string/toogle_last_app</item>
+        <item>@string/home</item>
+        <item>@string/settings</item>
+    </string-array>
+</resources>
