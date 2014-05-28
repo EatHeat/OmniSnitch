@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OmniSnitch(옴니 스니치)</string>
+    <string name="status_bar_recent_remove_item_title">멈춤</string>
+    <string name="status_bar_recent_inspect_item_title">앱 정보</string>
+    <string name="recents_settings_title">OmniSnitch</string>
+    <string name="start_on_boot_title">부팅할때 시작</string>
+    <string name="start_on_boot_summary">기기가 부팅할 때 활성화 및 실행합니다</string>
+    <string name="toggle_service_title">활성</string>
+    <string name="opacity_title">불투명도</string>
+    <string name="opacity_summary">오버레이 뷰의 배경 불투명도</string>
+    <string name="animate_title">애니메이션 효과</string>
+    <string name="animate_title_summary">오버레이 뷰가 나타나고 사라질때의 애니메이션 효과</string>
+    <string name="adjust_handle_title">위치</string>
+    <string name="sc_drag_handle_title">Drag handle</string>
+    <string name="sc_drag_handle_body">"Swipe horizontally or long-press to open
+Press button or outside to close"</string>
+    <string name="sc_favorite_title">즐겨찾는 앱</string>
+    <string name="sc_favorite_body">"
+즐겨찾는 앱 뷰를 엽니다."</string>
+    <string name="icon_size_normal">일반</string>
+    <string name="icon_size_small">소</string>
+    <string name="icon_size_large">대</string>
+    <string name="icon_size_title">아이콘 사이즈</string>
+    <string name="ok">확인</string>
+    <string name="cancel">취소</string>
+    <string name="drag_handle_color_title">색상</string>
+    <string name="drag_handle_color_summary" />
+    <string name="drag_handle_color_dialog_title">색상</string>
+    <string name="service_background_processes">%1$s 남음</string>
+    <string name="service_foreground_processes">%1$s 사용중</string>
+    <string name="show_rambar_title">메모리 사용량 표시</string>
+    <string name="show_rambar_summary">남은 메모리와 사용한 메모리를 표시합니다</string>
+    <string name="show_app_labels">앱 이름 표시</string>
+    <string name="show_app_labels_summary">어플리케이션의 이름을 앱 아이콘과 함께 표시합니다</string>
+    <string name="category_overlay_title">오버레이</string>
+    <string name="category_drag_handle_title">Drag handle</string>
+    <string name="category_favorite_title">즐겨찾기</string>
+    <string name="favorite_apps_config_title">즐겨찾기 관리</string>
+    <string name="favorite_apps_config_summary">즐겨찾는 앱을 정의합니다</string>
+    <string name="favorite_apps_add_dialog_title">앱 추가</string>
+    <string name="favorite_add">추가하는중…</string>
+    <string name="location_left">&lt;&lt;</string>
+    <string name="location_right">>></string>
+    <string name="reset">기본값</string>
+    <string name="toogle_last_app_help">최근 앱으로 전환</string>
+    <string name="kill_all_apps_help">모든 앱 중지</string>
+    <string name="kill_other_apps_help">다른 앱 중지</string>
+    <string name="settings_help">설정</string>
+    <string name="home_help">홈</string>
+    <string name="toogle_last_app">최근 앱으로 전환</string>
+    <string name="kill_all_apps">모든 앱 중지</string>
+    <string name="kill_other_apps">다른 앱 중지</string>
+    <string name="settings">설정</string>
+    <string name="home">홈</string>
+    <string name="buttons_title">버튼</string>
+    <string name="buttons_summary">오버레이 뷰에 액션버튼을 표시합니다</string>
+    <string name="auto_hide_handle">자동 숨김</string>
+    <string name="auto_hide_handle_summary">두 으로 밀면 오버레이 뷰가 표시됩니다</string>
+    <string name="no_recent_apps_title">최근 앱 없음</string>
+    <string name="adjust_handle_summary" />
+    <string name="drag_handle_opacity_title">불투명도</string>
+    <string name="drag_handle_opacity_summary" />
+    <string name="drag_handle_enable_title">활성</string>
+    <string name="drag_handle_enable_summary">Disable only if you use another activation method</string>
+</resources>

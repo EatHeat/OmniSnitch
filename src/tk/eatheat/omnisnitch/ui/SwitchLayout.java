@@ -34,10 +34,9 @@ import tk.eatheat.omnisnitch.TaskDescription;
 import tk.eatheat.omnisnitch.Utils;
 import tk.eatheat.omnisnitch.showcase.ShowcaseView;
 import tk.eatheat.omnisnitch.showcase.ShowcaseView.OnShowcaseEventListener;
-
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
-import android.support.v4.app.TaskStackBuilder;
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
